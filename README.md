@@ -1,38 +1,40 @@
-# ConectaBairro — Bairro Uninove
+# ConectaBairro – Bairro Uninove
 
-Protótipo acadêmico de plataforma comunitária. A versão inicial possui cadastro/login e CRUD funcional de pedidos de ajuda. Avisos, eventos e comércio local aparecem como áreas previstas para evolução do projeto.
+## Sobre o projeto
 
-## Requisitos
-- XAMPP (Apache + MySQL) ou ambiente equivalente
-- PHP 8 ou superior, com PDO MySQL habilitado
-- MySQL/MariaDB
+O ConectaBairro é um projeto desenvolvido no âmbito da disciplina Projeto de Extensão em Programação, do curso de Análise e Desenvolvimento de Sistemas da Universidade Nove de Julho (UNINOVE).
 
-## Instalação rápida com XAMPP
-1. Copie a pasta `ConectaBairro` para `C:\xampp\htdocs\`.
-2. Abra o XAMPP Control Panel e inicie **Apache** e **MySQL**.
-3. Acesse `http://localhost/phpmyadmin`.
-4. Clique em **Importar**, selecione `database.sql` e execute.
-5. Confira `config.php`. No XAMPP padrão, usuário `root` e senha vazia.
-6. Acesse `http://localhost/ConectaBairro/`.
-7. Crie uma conta pela tela inicial e entre com ela.
+A proposta consiste em desenvolver uma plataforma digital voltada à comunidade local, reunindo informações relevantes sobre o bairro, avisos, eventos e comércio local, facilitando o acesso dos moradores a conteúdos de interesse da região.
 
-## Teste para a apresentação
-1. Faça cadastro e login.
-2. Cadastre um pedido de ajuda com título, descrição e categoria.
-3. Mostre o pedido na lista.
-4. Clique em **Editar**, altere o status para “Em andamento” e salve.
-5. Mostre a alteração.
-6. Clique em **Excluir** e confirme.
-7. Mostre que o pedido não aparece mais.
+## Objetivo
 
-## Estrutura
-- `index.php`: cadastro, login, painel e CRUD de pedidos de ajuda.
-- `config.php`: conexão com MySQL.
-- `database.sql`: criação das cinco tabelas.
-- `assets/style.css`: aparência responsiva.
+Promover a organização e a divulgação de informações comunitárias por meio de uma plataforma web, contribuindo para a comunicação, integração e valorização do comércio e das atividades locais.
 
-## Observações importantes
-- O sistema é um protótipo acadêmico para demonstração, não uma plataforma pronta para uso público.
-- Os módulos de avisos, eventos e comércio estão representados como áreas previstas, mas ainda não possuem telas de cadastro/edição.
-- Para publicar na internet, será necessário reforçar segurança, permissões, validações, proteção contra CSRF e configuração do servidor.
-- Não cadastre dados pessoais reais de moradores na demonstração.
+## Funcionalidades
+
+- Página inicial com apresentação do projeto.
+- Área de avisos comunitários.
+- Divulgação de eventos locais.
+- Informações sobre comércio local.
+- Organização de informações relacionadas ao bairro.
+
+## Tecnologias utilizadas
+
+- HTML
+- CSS
+- PHP
+- MySQL
+- XAMPP
+
+## Execução do projeto
+
+1. Instalar o XAMPP.
+2. Copiar a pasta do projeto para o diretório `htdocs`.
+3. Iniciar o Apache e o MySQL pelo painel do XAMPP.
+4. Importar o arquivo `database.sql` no phpMyAdmin.
+5. Ajustar as configurações de conexão com o banco de dados no arquivo `config.php`.
+6. Acessar o projeto pelo navegador utilizando `http://localhost/ConectaBairro/`.
+
+## Desenvolvedores
+
+Projeto desenvolvido por estudantes do curso de Análise e Desenvolvimento de Sistemas da UNINOVE, Campus Vila Prudente, para a disciplina Projeto de Extensão em Programação.
