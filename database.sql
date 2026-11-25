@@ -1,0 +1,55 @@
+CREATE DATABASE IF NOT EXISTS conectabairro
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE conectabairro;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(120) NOT NULL,
+  email VARCHAR(160) NOT NULL UNIQUE,
+  senha VARCHAR(255) NOT NULL,
+  tipo ENUM('morador','lider','comerciante') NOT NULL DEFAULT 'morador',
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS avisos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NULL,
+  titulo VARCHAR(150) NOT NULL,
+  descricao TEXT NOT NULL,
+  categoria VARCHAR(60) NOT NULL DEFAULT 'Geral',
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS pedidos_ajuda (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  titulo VARCHAR(150) NOT NULL,
+  descricao TEXT NOT NULL,
+  categoria VARCHAR(60) NOT NULL,
+  status ENUM('Aberto','Em andamento','Concluído') NOT NULL DEFAULT 'Aberto',
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS eventos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NULL,
+  titulo VARCHAR(150) NOT NULL,
+  descricao TEXT,
+  local VARCHAR(150) NOT NULL,
+  data_evento DATE NOT NULL,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS comercios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NULL,
+  nome VARCHAR(150) NOT NULL,
+  categoria VARCHAR(80) NOT NULL,
+  descricao TEXT,
+  contato VARCHAR(100),
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL
+);
